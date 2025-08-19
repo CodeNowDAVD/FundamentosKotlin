@@ -15,7 +15,7 @@ Esta actividad forma parte de la guía GAA-01 para Kotlin en Android. El objetiv
 - Imprimir los resultados en Logcat
 
 ---
-
+![Captura de pantalla](Capturas/five.png)
 ## 🧠 Código utilizado
 
 ```kotlin
