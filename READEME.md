@@ -17,23 +17,23 @@ Esta actividad forma parte de la guía GAA-01 para Kotlin en Android. El objetiv
 ---
 ## 🧠 Código utilizado
 
-kotlin
-// Constantes Globales
-const val APP_NAME = "Clase1App"
-const val APP_VERSION = "1.0.0"
-
-fun tarea1() {
-    var contador: Int = 0
-    var mensaje: String = "Hola"
-
-    val PI: Double = 3.14159
-    val DIAS_SEMANA: Int = 7
-
-    Log.d("A1", "Nombre app: $APP_NAME")
-    Log.d("A1", "Version app: $APP_VERSION")
-    Log.d("A1", "$mensaje, contador=$contador")
-    Log.d("A1", "PI=$PI, dias=$DIAS_SEMANA")
-}
+    kotlin
+    // Constantes Globales
+    const val APP_NAME = "Clase1App"
+    const val APP_VERSION = "1.0.0"
+        
+    fun tarea1() {
+        var contador: Int = 0
+        var mensaje: String = "Hola"
+        
+        val PI: Double = 3.14159
+        val DIAS_SEMANA: Int = 7
+        
+        Log.d("A1", "Nombre app: $APP_NAME")
+        Log.d("A1", "Version app: $APP_VERSION")
+        Log.d("A1", "$mensaje, contador=$contador")
+        Log.d("A1", "PI=$PI, dias=$DIAS_SEMANA")
+    }
 
 ## 📸 Evidencia en Logcat
 ![Captura de pantalla](app/Capturas/first.png)
@@ -72,23 +72,24 @@ Usar listas y bucles me permitió probar múltiples casos fácilmente.
 
 ## 🧠 Código utilizado
 
-kotlin
-fun clasificarEdad(edad: Int): String {
-    return when (edad) {
-        in 0..12 -> "Niño"
-        in 13..17 -> "Adolescente"
-        in 18..59 -> "Adulto"
-        else -> "Mayor"
+    kotlin
+    fun clasificarEdad(edad: Int): String {
+        return when (edad) {
+            in 0..12 -> "Niño"
+            in 13..17 -> "Adolescente"
+            in 18..59 -> "Adulto"
+            else -> "Mayor"
+        }
     }
-}
+    
+    fun tareaA4() {
+        val edades = listOf(5, 14, 30, 60, 80)
+        for (edad in edades) {
+            val categoria = clasificarEdad(edad)
+            Log.d("A4", "Edad: $edad → Categoría: $categoria")
+        }
+    }
 
-fun tareaA4() {
-    val edades = listOf(5, 14, 30, 60, 80)
-    for (edad in edades) {
-        val categoria = clasificarEdad(edad)
-        Log.d("A4", "Edad: $edad → Categoría: $categoria")
-    }
-}
 ✍️ Reflexión de aprendizaje — Actividad A4
 Aprendí a usar la estructura when con rangos (in 0..12) para clasificar valores de forma clara y ordenada.
 Esta forma de control de flujo es más legible que múltiples condiciones if, especialmente cuando se trabaja con categorías.
@@ -110,20 +111,20 @@ Ver los resultados en Logcat me ayudó a validar que la lógica de clasificació
 
 ## 🧠 Código utilizado
 
-kotlin
-fun tareaA5() {
-    val numero = 5
-
-    var i = 1
-    while (i <= 10) {
-        Log.d("A5-while", "$numero x $i = ${numero * i}")
-        i++
+    kotlin
+    fun tareaA5() {
+        val numero = 5
+    
+        var i = 1
+        while (i <= 10) {
+            Log.d("A5-while", "$numero x $i = ${numero * i}")
+            i++
+        }
+    
+        for (j in 1..10) {
+            Log.d("A5-for", "$numero x $j = ${numero * j}")
+        }
     }
-
-    for (j in 1..10) {
-        Log.d("A5-for", "$numero x $j = ${numero * j}")
-    }
-}
 
 El bucle for es más legible y directo cuando se conoce el rango de iteración.
 El bucle while es útil cuando la condición depende de lógica más compleja.
@@ -131,6 +132,9 @@ Kotlin permite escribir ambos tipos de bucles de forma clara y eficiente.
 Ver los resultados en Logcat me ayudó a comparar fácilmente ambos enfoques.
 
 ![Captura de pantalla](app/Capturas/five.png)
+
+....
+
 ![Captura de pantalla](app/Capturas/six.png)
 
 
@@ -144,26 +148,27 @@ Ver los resultados en Logcat me ayudó a comparar fácilmente ambos enfoques.
 
 ## 🧠 Código utilizado
 
-kotlin
-data class Producto(val id: Int, val nombre: String, val precio: Double, val stock: Int)
-
-fun tareaA6() {
-    val productos = listOf(
-        Producto(1, "Laptop", 2500.0, 5),
-        Producto(2, "Mouse", 50.0, 0),
-        Producto(3, "Teclado", 120.0, 3),
-        Producto(4, "Monitor", 800.0, 0),
-        Producto(5, "USB", 30.0, 10)
-    )
-
-    val nombresDisponibles = productos.filter { it.stock > 0 }.map { it.nombre }
-    val totalInventario = productos.sumOf { it.precio * it.stock }
-    val sinStock = productos.count { it.stock == 0 }
-
-    Log.d("A6", "Productos disponibles: $nombresDisponibles")
-    Log.d("A6", "Valor total del inventario: $totalInventario")
-    Log.d("A6", "Cantidad de productos sin stock: $sinStock")
-}
+    kotlin
+        data class Producto(val id: Int, val nombre: String, val precio: Double, val stock: Int)
+    
+    fun tareaA6() {
+        val productos = listOf(
+            Producto(1, "Laptop", 2500.0, 5),
+            Producto(2, "Mouse", 50.0, 0),
+            Producto(3, "Teclado", 120.0, 3),
+            Producto(4, "Monitor", 800.0, 0),
+            Producto(5, "USB", 30.0, 10)
+        )
+    
+        val nombresDisponibles = productos.filter { it.stock > 0 }.map { it.nombre }
+        val totalInventario = productos.sumOf { it.precio * it.stock }
+        val sinStock = productos.count { it.stock == 0 }
+    
+        Log.d("A6", "Productos disponibles: $nombresDisponibles")
+        Log.d("A6", "Valor total del inventario: $totalInventario")
+        Log.d("A6", "Cantidad de productos sin stock: $sinStock")
+    }
+    
 ✍️ Reflexión
 Aprendí a usar data class para representar objetos con propiedades.
 Las funciones filter, map, sumOf y count permiten trabajar con colecciones de forma funcional y eficiente.
@@ -183,20 +188,20 @@ Ver los resultados en Logcat me ayudó a validar la lógica de inventario.
 
 ## 🧠 Código utilizado
 
-kotlin
-fun aEnteroSeguro(s: String): Int {
-    val convertido = s.toIntOrNull() ?: -1
-    return convertido
-}
-
-fun tareaA7() {
-    val entradas = listOf("123", "abc", "45", "", "9999")
-
-    for (entrada in entradas) {
-        val resultado = aEnteroSeguro(entrada)
-        Log.d("A7", "Entrada: \"$entrada\" → Resultado: $resultado")
+    kotlin
+    fun aEnteroSeguro(s: String): Int {
+        val convertido = s.toIntOrNull() ?: -1
+        return convertido
     }
-}
+    
+    fun tareaA7() {
+        val entradas = listOf("123", "abc", "45", "", "9999")
+    
+        for (entrada in entradas) {
+            val resultado = aEnteroSeguro(entrada)
+            Log.d("A7", "Entrada: \"$entrada\" → Resultado: $resultado")
+        }
+    }
 
 ✍️ Reflexión
 Aprendí que toIntOrNull() permite convertir strings a enteros de forma segura, evitando errores por valores inválidos.
@@ -217,33 +222,33 @@ Ver los resultados en Logcat me permitió confirmar que los valores inválidos s
 
 ## 🧠 Código utilizado
 
-kotlin
-fun esPrimo(n: Int): Boolean {
-    if (n < 2) return false
-    for (i in 2..Math.sqrt(n.toDouble()).toInt()) {
-        if (n % i == 0) return false
+    kotlin
+    fun esPrimo(n: Int): Boolean {
+        if (n < 2) return false
+        for (i in 2..Math.sqrt(n.toDouble()).toInt()) {
+            if (n % i == 0) return false
+        }
+        return true
     }
-    return true
-}
-
-fun fibonacci(n: Int): List<Int> {
-    val lista = mutableListOf(0, 1)
-    for (i in 2 until n) {
-        lista.add(lista[i - 1] + lista[i - 2])
+    
+    fun fibonacci(n: Int): List<Int> {
+        val lista = mutableListOf(0, 1)
+        for (i in 2 until n) {
+            lista.add(lista[i - 1] + lista[i - 2])
+        }
+        return lista
     }
-    return lista
-}
-
-fun tareaA8() {
-    val fibo = fibonacci(10)
-    Log.d("A8", "Fibonacci(10): $fibo")
-
-    val numeros = listOf(3, 7, 10)
-    for (num in numeros) {
-        val primo = esPrimo(num)
-        Log.d("A8", "¿$num es primo? → $primo")
+    
+        fun tareaA8() {
+            val fibo = fibonacci(10)
+            Log.d("A8", "Fibonacci(10): $fibo")
+    
+        val numeros = listOf(3, 7, 10)
+        for (num in numeros) {
+            val primo = esPrimo(num)
+            Log.d("A8", "¿$num es primo? → $primo")
+        }
     }
-}
 
 ✍️ Reflexión
 Aprendí que una función pura siempre devuelve el mismo resultado para los mismos argumentos.
@@ -264,32 +269,32 @@ Ver los resultados en Logcat me permitió validar la precisión de ambas funcion
 
 ## 🧠 Código utilizado
 
-kotlin
-class Persona(var nombre: String, var edad: Int) {
-    fun cumplirAnios() {
+    kotlin
+    class Persona(var nombre: String, var edad: Int) {
+        fun cumplirAnios() {
         edad++
     }
 
     fun presentacion(): String {
         return "Hola, soy $nombre y tengo $edad años."
+        }
     }
-}
 
-data class Usuario(val nombre: String, val edad: Int)
+    data class Usuario(val nombre: String, val edad: Int)
 
-fun tareaA9() {
-    val persona = Persona("Luis", 30)
-    persona.cumplirAnios()
-    Log.d("A9", persona.presentacion())
+    fun tareaA9() {
+        val persona = Persona("Luis", 30)
+        persona.cumplirAnios()
+        Log.d("A9", persona.presentacion())
 
-    val usuario1 = Usuario("Ana", 25)
-    val usuario2 = usuario1.copy(edad = 26)
-    val sonIguales = usuario1 == usuario2
-
-    Log.d("A9", "Usuario original: $usuario1")
-    Log.d("A9", "Usuario modificado con copy: $usuario2")
-    Log.d("A9", "¿Son iguales? → $sonIguales")
-}
+        val usuario1 = Usuario("Ana", 25)
+        val usuario2 = usuario1.copy(edad = 26)
+        val sonIguales = usuario1 == usuario2
+    
+        Log.d("A9", "Usuario original: $usuario1")
+        Log.d("A9", "Usuario modificado con copy: $usuario2")
+        Log.d("A9", "¿Son iguales? → $sonIguales")
+    }
 
 ✍️ Reflexión
 Aprendí que las clases regulares permiten definir métodos personalizados como presentacion() y modificar propiedades.
@@ -309,16 +314,16 @@ Kotlin facilita el trabajo con estructuras de datos y lógica personalizada.
 
 ## 🧠 Código utilizado
 
-kotlin
-fun List<Int>.media(): Double {
-    return if (this.isNotEmpty()) this.sum().toDouble() / this.size else 0.0
-}
+    kotlin
+        fun List<Int>.media(): Double {
+          return if (this.isNotEmpty()) this.sum().toDouble() / this.size else 0.0
+        }
+    
+    fun String.capitalizarPrimera(): String {
+        return this.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
+    }
 
-fun String.capitalizarPrimera(): String {
-    return this.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
-}
-
-fun tareaA10() {
+    fun tareaA10() {
     val numeros = listOf(10, 20, 30, 40, 50)
     val promedio = numeros.media()
     Log.d("A10", "Promedio de la lista: $promedio")
@@ -360,6 +365,7 @@ fun tareaA11() {
     Log.d("A11", "Suma de pares: $sumaPares")
     Log.d("A11", "Promedio de pares: $promedioPares")
 }
+
 ✍️ Reflexión
 Aprendí a usar operaciones declarativas (filter, sum, average) para trabajar con colecciones en Kotlin.
 El filtrado de números pares se hace de manera sencilla y expresiva.
