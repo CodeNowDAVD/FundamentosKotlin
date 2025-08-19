@@ -15,10 +15,9 @@ Esta actividad forma parte de la guía GAA-01 para Kotlin en Android. El objetiv
 - Imprimir los resultados en Logcat
 
 ---
-![Captura de pantalla](Capturas/five.png)
 ## 🧠 Código utilizado
 
-```kotlin
+kotlin
 // Constantes Globales
 const val APP_NAME = "Clase1App"
 const val APP_VERSION = "1.0.0"
@@ -37,7 +36,7 @@ fun tarea1() {
 }
 
 ## 📸 Evidencia en Logcat
-![Captura de pantalla](Capturas/first.png)
+![Captura de pantalla](app/Capturas/first.png)
 
 Aprendí que var se usa para declarar variables que pueden cambiar su valor durante la ejecución del programa.
 val se usa para declarar constantes locales que no pueden ser reasignadas, aunque pueden contener objetos mutables.
@@ -55,13 +54,13 @@ Usar Log.d() me permitió verificar que los valores se imprimen correctamente en
 - `Double` se usa cuando se necesita mayor precisión, como en cálculos científicos.
 - Aprendí a usar los sufijos `L` y `f` para declarar correctamente los tipos `Long` y `Fl
 
-![Captura de pantalla](Capturas/second.png)
+![Captura de pantalla](app/Capturas/second.png)
 
 ✍️ Reflexión A3
 Aprendí que en Kotlin el if puede usarse como expresión, lo que permite retornar valores directamente.
 Esto hace el código más limpio y legible.
 Usar listas y bucles me permitió probar múltiples casos fácilmente.
-![Captura de pantalla](Capturas/third.png)
+![Captura de pantalla](app/Capturas/third.png)
 
 
 # Actividad A4 - When con rangos
@@ -73,7 +72,7 @@ Usar listas y bucles me permitió probar múltiples casos fácilmente.
 
 ## 🧠 Código utilizado
 
-```kotlin
+kotlin
 fun clasificarEdad(edad: Int): String {
     return when (edad) {
         in 0..12 -> "Niño"
@@ -98,7 +97,7 @@ Usar listas y bucles me permitió probar varios casos de forma eficiente.
 Ver los resultados en Logcat me ayudó a validar que la lógica de clasificación funciona correctamente.
 
 /Ecidencia
-![Captura de pantalla](Capturas/four.png)
+![Captura de pantalla](app/Capturas/four.png)
 
 
 
@@ -111,7 +110,7 @@ Ver los resultados en Logcat me ayudó a validar que la lógica de clasificació
 
 ## 🧠 Código utilizado
 
-```kotlin
+kotlin
 fun tareaA5() {
     val numero = 5
 
@@ -131,8 +130,8 @@ El bucle while es útil cuando la condición depende de lógica más compleja.
 Kotlin permite escribir ambos tipos de bucles de forma clara y eficiente.
 Ver los resultados en Logcat me ayudó a comparar fácilmente ambos enfoques.
 
-![Captura de pantalla](Capturas/five.png)
-![Captura de pantalla](Capturas/six.png)
+![Captura de pantalla](app/Capturas/five.png)
+![Captura de pantalla](app/Capturas/six.png)
 
 
 # Actividad A6 - Colecciones y data class
@@ -145,7 +144,7 @@ Ver los resultados en Logcat me ayudó a comparar fácilmente ambos enfoques.
 
 ## 🧠 Código utilizado
 
-```kotlin
+kotlin
 data class Producto(val id: Int, val nombre: String, val precio: Double, val stock: Int)
 
 fun tareaA6() {
@@ -171,7 +170,7 @@ Las funciones filter, map, sumOf y count permiten trabajar con colecciones de fo
 Kotlin facilita el manejo de listas inmutables y operaciones encadenadas.
 Ver los resultados en Logcat me ayudó a validar la lógica de inventario.
 
-![Captura de pantalla](Capturas/sevent.png)
+![Captura de pantalla](app/Capturas/sevent.png)
 
 
 
@@ -184,7 +183,7 @@ Ver los resultados en Logcat me ayudó a validar la lógica de inventario.
 
 ## 🧠 Código utilizado
 
-```kotlin
+kotlin
 fun aEnteroSeguro(s: String): Int {
     val convertido = s.toIntOrNull() ?: -1
     return convertido
@@ -205,7 +204,7 @@ El operador Elvis ?: es útil para asignar un valor por defecto cuando el result
 Kotlin facilita el manejo de valores nulos, lo que ayuda a evitar errores como NullPointerException.
 Ver los resultados en Logcat me permitió confirmar que los valores inválidos se manejan correctamente.
 
-![Captura de pantalla](Capturas/eight.png)
+![Captura de pantalla](app/Capturas/eight.png)
 
 
 # Actividad A8 - Funciones puras
@@ -218,7 +217,7 @@ Ver los resultados en Logcat me permitió confirmar que los valores inválidos s
 
 ## 🧠 Código utilizado
 
-```kotlin
+kotlin
 fun esPrimo(n: Int): Boolean {
     if (n < 2) return false
     for (i in 2..Math.sqrt(n.toDouble()).toInt()) {
@@ -253,7 +252,7 @@ esPrimo(n) evalúa la primalidad de forma eficiente usando raíz cuadrada.
 Estas funciones son ideales para lógica matemática y algoritmos.
 Ver los resultados en Logcat me permitió validar la precisión de ambas funciones.
 
-![Captura de pantalla](Capturas/nine.png)
+![Captura de pantalla](app/Capturas/nine.png)
 
 # Actividad A9 - Clases vs data class
 
@@ -265,7 +264,7 @@ Ver los resultados en Logcat me permitió validar la precisión de ambas funcion
 
 ## 🧠 Código utilizado
 
-```kotlin
+kotlin
 class Persona(var nombre: String, var edad: Int) {
     fun cumplirAnios() {
         edad++
@@ -299,7 +298,7 @@ Usar copy() permite crear una nueva instancia modificando solo una propiedad.
 Comparar objetos con == en data class evalúa el contenido, no la referencia.
 Kotlin facilita el trabajo con estructuras de datos y lógica personalizada.
 
-![Captura de pantalla](Capturas/ten.png)
+![Captura de pantalla](app/Capturas/ten.png)
 
 # Actividad A10 - Extensiones y operaciones encadenadas
 
@@ -310,7 +309,7 @@ Kotlin facilita el trabajo con estructuras de datos y lógica personalizada.
 
 ## 🧠 Código utilizado
 
-```kotlin
+kotlin
 fun List<Int>.media(): Double {
     return if (this.isNotEmpty()) this.sum().toDouble() / this.size else 0.0
 }
@@ -336,7 +335,7 @@ String.capitalizarPrimera() mejora la presentación de textos.
 Kotlin facilita la escritura de código limpio y reutilizable.
 Ver los resultados en Logcat me permitió validar el comportamiento de las extensiones.
 
-![Captura de pantalla](Capturas/eleven.png)
+![Captura de pantalla](app/Capturas/eleven.png)
 
 # Actividad A11 - Mini reporte declarativo
 
@@ -349,7 +348,7 @@ Ver los resultados en Logcat me permitió validar el comportamiento de las exten
 
 ## 🧠 Código utilizado
 
-```kotlin
+kotlin
 fun tareaA11() {
     val nums = (1..20).toList()
 
@@ -368,7 +367,7 @@ La suma y el promedio se obtienen sin necesidad de bucles manuales, lo que hace 
 Este enfoque declarativo facilita la legibilidad y reduce errores comunes en cálculos numéricos.
 
 
-![Captura de pantalla](Capturas/twelve.png)
+![Captura de pantalla](app/Capturas/twelve.png)
 
 
 
